@@ -5,6 +5,7 @@ import './index.css';
 function App() {
   const initialData = [];
   const [visible, setVisible] = useState(true);
+  const [on, seton] = useState(false);
   const [text, setText] = useState('');
   const [data, setdata] = useState(initialData);
   const [num1, setNum1] = useState("");
@@ -30,23 +31,26 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App ">
 
       <section>
         <h2 >Sum Two Numbers</h2>
         <div id='inputs'>
         <input className='gap'
-          //type="number"
+          type="number"
           value={num1}
           onChange={(e) => setNum1(e.target.value)}
           />
         <input
-          //type="number"
+          type="number"
           value={num2}
           onChange={(e) => setNum2(e.target.value)}
           /></div>
-        <button id='btn' onClick={handleSum} disabled={num1 === '' || num2 === ''}>
+        <button id='btn' onClick={handleSum} disabled={on}>
           Sum
+        </button>
+        <button  onClick={() => seton(!on)}>
+        {on? 'on' : 'off'}
         </button>
         <p id='btn' >Result : {sum}</p>
       </section>
